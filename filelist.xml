@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="奇迹之海士兵职业" modversion="1.16" corepackage="False" steamworkshopid="3333099866" gameversion="1.5.9.2">
+  <Item file="%ModDir%/weapon.xml" />
+  <Item file="%ModDir%/suit.xml" />
+  <Talents file="%ModDir%/Talents.xml" />
+  <Text file="%ModDir%/Chinesetext.xml" />
+  <Afflictions file="%ModDir%/Afflictions.xml" />
+  <Jobs file="%ModDir%/Jobs.xml" />
+  <TalentTrees file="%ModDir%/TalentTrees.xml" />
+  <Sounds file="%ModDir%/Sounds.xml" />
+</contentpackage>

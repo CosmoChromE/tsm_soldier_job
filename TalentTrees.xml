@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TalentTrees>
+	<TalentTree jobidentifier="tsmsoldier">
+		<SubTree identifier="sunset" type="specialization" blocks="advanced,nineprov">
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="tsmsunset"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="medicaltrainee"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="versatile"/>
+				<TalentOption identifier="survivor"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="lonefixer"/>
+				<TalentOption identifier="unbreakable"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="tsmfabricate"/>
+				<TalentOption identifier="holdtheline"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="sharpshooter"/>
+			</TalentOptions>
+		</SubTree>
+		<SubTree identifier="advanced" type="specialization" blocks="sunset,nineprov">
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="tsmadvanced"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="cornered"/>
+				<TalentOption identifier="advancedwarfare"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="guerilla"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="newammo"/>
+				<TalentOption identifier="burnitall"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="endured"/>
+				<TalentOption identifier="weaknessanalysis"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="recoilarmor"/>
+			</TalentOptions>
+		</SubTree>
+		<SubTree identifier="nineprov" type="specialization" blocks="sunset,advanced">
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="tsmnineprov"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="hunter"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="scavenging"/>
+				<TalentOption identifier="tsm_bonvoyage"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="aquaghost"/>
+				<TalentOption identifier="aquaspectre"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="battlecommand"/>
+				<TalentOption identifier="suppression"/>
+			</TalentOptions>
+			<TalentOptions requiredtalents="1">
+				<TalentOption identifier="endlesshunting"/>
+			</TalentOptions>
+		</SubTree>
+		<SubTree identifier="tsmsoldier_final" type="primary" requires="sunset,nineprov,advanced">
+			<TalentOptions>
+				<TalentOption identifier="specops"/>
+				<TalentOption identifier="implacable"/>
+				<TalentOption identifier="warlord"/>
+			</TalentOptions>
+		</SubTree>
+	</TalentTree>
+</TalentTrees>

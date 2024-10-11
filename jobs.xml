@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Jobs>
+	<Job identifier="tsmsoldier" minkarma="0" initialcount="1" idlebehavior="Patrol" uicolor="255,100,100" vitalitymodifier="0"
+       pricemultiplier="1">
+		<Jobicon>
+			<sprite texture="%ModDir:2953749635%/png/UI.png" sourcerect="999,26,90,91" origin="0.5,0.5" />
+		</Jobicon>
+		<Skills>
+			<Skill identifier="weapons" level="40,50" primary="true"/>
+			<Skill identifier="medical" level="25,35"/>
+			<Skill identifier="mechanical" level="15,25"/>
+			<Skill identifier="electrical" level="15,25"/>
+			<Skill identifier="helm" level="5,10"/>
+		</Skills>
+		<ItemSet>
+			<Item identifier="tsm_old_uniform" equip="true" outfit="true" />
+			<Item identifier="tsm_riotcontrol_helmet" equip="true" outfit="true" />
+			<Item identifier="idcard" equip="true" showpreview="false" />
+			<Item identifier="headset" equip="true" showpreview="false" />
+			<Item identifier="tsm_stunbaton_melee" equip="false">
+				<Item identifier="batterycell" showpreview="false" />	
+			</Item>
+			<Item identifier="tsm_92_pistols">
+				<Item identifier="tsm_9_mag" />
+			</Item>
+			<Item identifier="tsm_171" >
+				<Item identifier="tsm_9_smgmag"/>
+			</Item>
+			<Item identifier="tsm_9_smgmag" amount="4"/>
+			<PreviewSprites dims="120,109">
+				<sprite texture="%ModDir%/png/UI.png" sourcerect="999,26,90,91" offset="0,0" />
+				<sprite texture="%ModDir%/png/UI.png" sourcerect="1280,191,103,102" offset="-20,15" />
+			</PreviewSprites>
+		</ItemSet>
+	</Job>
+</Jobs>

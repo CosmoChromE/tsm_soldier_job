@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Talents>
+	<!--日暮山作战部-->
+	<Talent identifier="tsmsunset">
+		<Description tag="talentdescription.tsmsunset"/>
+		<Icon texture="Content/UI/TalentsIcons3.png" sheetindex="2,2" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="None">
+			<Abilities>
+				<CharacterAbilityGivePermanentStat statidentifier="weapon" stattype="IncreaseFabricationQuality" value="1" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnGainMissionExperience">
+			<Conditions>
+				<AbilityConditionMission missiontype="Escort，Cargo"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyValue multiplyvalue="1.3"/>
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnCrewGainMissionReputation">
+			<Conditions>
+				<AbilityConditionMission missiontype="Escort，Cargo"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyValue multiplyvalue="1.5"/>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="medicaltrainee">
+		<Description tag="talentdescription.medicaltrainee"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,2" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="OnGainSkillPoint">
+			<Conditions>
+				<AbilityConditionSkill skillidentifier="weapons" />
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityGainSimultaneousSkill skillidentifier="medical" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="None" >
+      <Abilities>
+        <CharacterAbilityGiveFlag flagtype="MoveNormallyWhileDragging" />
+      </Abilities>
+    </AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="versatile">
+		<Description tag="talentdescription.versatile"/>
+		<Icon texture="Content/UI/TalentsIcons2.png" sheetindex="3,5" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="None">
+		<Abilities>
+			<CharacterAbilityGiveStat stattype="WeaponsSkillBonus" value="10"/>
+			<CharacterAbilityGiveStat stattype="HelmSkillBonus" value="10"/>
+			<CharacterAbilityGiveStat stattype="MechanicalSkillBonus" value="10"/>
+			<CharacterAbilityGiveStat stattype="ElectricalSkillBonus" value="10"/>
+			<CharacterAbilityGiveStat stattype="MedicalSkillBonus" value="10"/>
+		</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="sharpshooter">
+		<Description tag="talentdescription.sharpshooter"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,1" sheetelementsize="128,128"/>
+		<AbilityGroupInterval interval="1">
+			<Conditions>
+				<AbilityConditionHoldingItem tags="sniperrifle"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
+							<Affliction identifier="sharpshooter" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+		<AbilityGroupEffect abilityeffecttype="OnAttack">
+			<Conditions>
+					<AbilityConditionHasAffliction afflictionidentifier="sharpshooter" minimumpercentage="0.33"/>
+				<AbilityConditionAttackData tags="sniperrifle"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyAttackData addeddamagemultiplier="0.10" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnAttack">
+			<Conditions>
+				<AbilityConditionHasAffliction afflictionidentifier="sharpshooter" minimumpercentage="0.66"/>
+				<AbilityConditionAttackData tags="sniperrifle"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyAttackData addeddamagemultiplier="0.10" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnAttack">
+			<Conditions>
+				<AbilityConditionHasAffliction afflictionidentifier="sharpshooter" minimumpercentage="0.99"/>
+				<AbilityConditionAttackData tags="sniperrifle"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyAttackData addeddamagemultiplier="0.10" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnAttack">
+		<CharacterAbilityApplyStatusEffects>
+			<StatusEffects>
+				<StatusEffect type="OnAbility" target="This" delay="0.05" stackable="false" disabledeltatime="true">
+					<ReduceAffliction identifier="sharpshooter" strength="15"/>
+				</StatusEffect>
+			</StatusEffects>
+		</CharacterAbilityApplyStatusEffects>
+		</AbilityGroupEffect>
+		<AddedRecipe itemidentifier="tsm_gravitythrower"/>
+		<AddedRecipe itemidentifier="tsm_gravitational_suit"/>
+	</Talent>
+	<Talent identifier="painreduction">
+		<Description tag="talentdescription.painreduction"/>
+		<Icon texture="Content/UI/TalentsIcons3.png" sheetindex="6,4" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="None">
+			<Abilities>
+				<CharacterAbilityGiveStat stattype="MaximumHealthMultiplier" value="0.1"/>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="battlefieldmedicine">
+		<Description tag="talentdescription.battlefieldmedicine"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,6" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="None">
+			<Abilities>
+				<CharacterAbilityGiveStat stattype="MedicalItemApplyingMultiplier" value="0.20"/>
+				<CharacterAbilityGiveStat stattype="MedicalItemEffectivenessMultiplier" value="0.15" />
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="unbreakable">
+		<Description tag="talentdescription.unbreakable"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,3" sheetelementsize="128,128"/>
+		<AbilityGroupInterval interval="0.9">
+			<Conditions>
+				<AbilityConditionAllyNearby truthywhen="OneCharacterMatches" distance="600" />
+				<AbilityConditionInHull />
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="unbreakable" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+	</Talent>
+	<Talent identifier="lonefixer">
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="1,5" sheetelementsize="128,128"/>
+		<Description tag="talentdescription.lonefixer"/>
+		<AbilityGroupInterval interval="0.9">
+			<Conditions>
+				<AbilityConditionAllyNearby distance="1500" truthywhen="NoCharacterMatches"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="lonefixer" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+	</Talent>
+	<Talent identifier="survivor">
+		<Icon texture="Content/UI/TalentsIcons3.png" sheetindex="2,3" sheetelementsize="128,128"/>
+		<Description tag="talentdescription.survivor"/>
+		<AbilityGroupEffect abilityeffecttype="OnAttacked">
+			<Conditions>
+				<AbilityConditionServerRandom randomchance="0.15" />
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyAttackData addeddamagemultiplier="-0.1" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+			<Conditions>
+				<AbilityConditionNoCrewDied assistantsdontcount="false" />
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffectsToAllies requiresalive="true" allowself="true">
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+							<Affliction identifier="survivorheal" amount="5" />
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffectsToAllies>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="tsmfabricate">
+		<Description tag="talentdescription.tsmfabricate"/>
+		<Icon texture="Content/UI/TalentsIcons2.png" sheetindex="6,1" sheetelementsize="128,128"/>
+		<AbilityGroupInterval interval="0.9">
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="tsmfabricate" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+	</Talent>
+	<Talent identifier="holdtheline">
+		<Description tag="talentdescription.holdtheline"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,3" sheetelementsize="128,128"/>
+		<AbilityGroupInterval interval="0.9">
+			<Conditions>
+				<AbilityConditionIsAiming/>
+			</Conditions>
+			<Abilities>
+			<CharacterAbilityApplyStatusEffects>
+				<StatusEffects>
+					<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+						<Affliction identifier="holdtheline" amount="1.0"/>
+					</StatusEffect>
+				</StatusEffects>
+			</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+		<AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+			<Abilities>
+				<CharacterAbilityModifyAffliction afflictionidentifiers="stun" addedmultiplier="0.15" />
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<!--先进作战部-->
+	<Talent identifier="tsmadvanced">
+		<Description tag="talentdescription.tsmadvanced"/>
+		<Icon texture="Content/UI/TalentsIcons3.png" sheetindex="6,3" sheetelementsize="128,128"/>
+		<AbilityGroupInterval>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character">
+							<ReduceAffliction identifier="bleeding" strength="0.5"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+		<AbilityGroupEffect abilityeffecttype="OnGainMissionExperience">
+			<Conditions>
+				<AbilityConditionMission missiontype="Pirate,AbandonedOutpost"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyValue multiplyvalue="1.3"/>
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnCrewGainMissionReputation">
+			<Conditions>
+				<AbilityConditionMission missiontype="Pirate,AbandonedOutpost"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyValue multiplyvalue="1.5"/>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="cornered">
+		<Icon texture="Content/UI/TalentsIcons3.png" sheetindex="3,6" sheetelementsize="128,128"/>
+		<Description tag="talentdescription.cornered"/>
+		<AbilityGroupInterval interval="0.9">
+			<Conditions>
+				<AbilityConditionAllyNearby distance="500" truthywhen="NoCharacterMatches"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="cornered" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+	</Talent>
+	<Talent identifier="advancedwarfare">
+		<Description tag="talentdescription.advancedwarfare"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,3" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="None">
+			<Abilities>
+				<CharacterAbilityGiveStat stattype="WeaponsSkillBonus" value="15"/>
+				<CharacterAbilityGiveStat stattype="WeaponsSkillGainSpeed" value="0.3"/>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="endured">
+		<Description tag="talentdescription.endured"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="1,2" sheetelementsize="128,128"/>
+		<AbilityGroupInterval interval="0.9">
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="endured" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+		<AbilityGroupEffect abilityeffecttype="OnAttackedResult">
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="endured" amount="-10.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="weaknessanalysis">
+		<Description tag="talentdescription.weaknessanalysis"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,1" sheetelementsize="128,128"/>
+		<AbilityGroupInterval interval="0.9">
+			<Conditions>
+				<AbilityConditionIsAiming/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="weaknessanalysis" amount="2.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+	</Talent>
+	<Talent identifier="newammo">
+		<Description tag="talentdescription.newammo"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="4,7" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+			<Abilities>
+				<CharacterAbilityModifyAffliction afflictionidentifiers="triton_7L" addedmultiplier="0.2" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="None">
+			<Abilities>
+				<CharacterAbilityGiveResistance resistanceid="triton_burn" multiplier="0.5"/>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="burnitall">
+		<Description tag="talentdescription.burnitall"/>
+		<Icon texture="Content/UI/TalentsIcons2.png" sheetindex="7,2" sheetelementsize="128,128"/>
+		<AbilityGroupInterval interval="0.9">
+			<Conditions>
+				<AbilityConditionAboveVitality invert="true" vitalitypercentage="0.5"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="burnitall" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+		<AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+			<Abilities>
+				<CharacterAbilityModifyAffliction afflictionidentifiers="burn" addedmultiplier="0.15" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AddedRecipe itemidentifier="tsm_rsmagazine"/>
+		<AddedRecipe itemidentifier="tsm_grenade_fire"/>
+	</Talent>
+	<Talent identifier="guerilla">
+		<Description tag="talentdescription.guerilla"/>
+		<Icon texture="Content/UI/TalentsIcons2.png" sheetindex="5,4" sheetelementsize="128,128"/>
+		<AbilityGroupInterval interval="0.9">
+			<Conditions>
+				<AbilityConditionIsAiming/>
+			</Conditions>
+					<Abilities>
+						<CharacterAbilityApplyStatusEffects>
+							<StatusEffects>
+								<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+									<Affliction identifier="guerilla" amount="1.0"/>
+								</StatusEffect>
+							</StatusEffects>
+						</CharacterAbilityApplyStatusEffects>
+					</Abilities>
+		</AbilityGroupInterval>
+		<AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+			<Abilities>
+				<CharacterAbilityModifyAffliction afflictiontype="stun" addedmultiplier="0.1" />
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="recoilarmor">
+		<Icon texture="Content/UI/TalentsIcons2.png" sheetindex="4,0" sheetelementsize="128,128"/>
+		<Description tag="talentdescription.recoilarmor"/>
+		<AbilityGroupInterval interval="1">
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
+							<Affliction identifier="recoilarmor" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+		<AbilityGroupEffect abilityeffecttype="OnAttacked">
+			<Conditions>
+				<AbilityConditionHasAffliction afflictionidentifier="recoilarmor" minimumpercentage="1.0"/>
+				<AbilityConditionAttackData ignorenonharmfulattacks="true" ignoreOwnAttacks="true" weapontype="Ranged,Melee"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffectsToAttacker>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" targetlimb="Torso" delay="0.1" disabledeltatime="true">
+							<Affliction identifier="stun" amount="1"/>
+							<ParticleEmitter particle="ElectricShock" distancemin="0" distancemax="50" particleamount="5" anglemin="0" anglemax="360" scalemin="0.1" scalemax="0.2" />
+							<sound file="Content/Items/Weapons/WEAPONS_electricalDischarge1.ogg" range="500" />
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffectsToAttacker>
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnAttackedResult">
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="This">
+							<ReduceAffliction identifier="recoilarmor" strength="20.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<!--九州作战部-->
+	<Talent identifier="tsmnineprov">
+		<Description tag="talentdescription.tsmnineprov"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="4,0" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="None">
+			<Abilities>
+				<CharacterAbilityGiveStat stattype="SwimmingSpeed" value="0.15"/>
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnGainMissionExperience">
+			<Conditions>
+				<AbilityConditionMission missiontype="Monster,Nest"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyValue multiplyvalue="1.3"/>
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnCrewGainMissionReputation">
+			<Conditions>
+				<AbilityConditionMission missiontype="Monster,Nest"/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyValue multiplyvalue="1.5"/>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="hunter">
+		<Description tag="talentdescription.hunter"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="4,2" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="None">
+			<Abilities>
+				<CharacterAbilityGiveResistance resistanceid="infection" multiplier="0.5"/>
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnKillCharacter">
+			<Conditions>
+				<AbilityConditionCharacter targettypes="Enemy" />
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityGiveExperience amount="15" />
+				<CharacterAbilityGiveMoney amount="15" />
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="aquaghost">
+		<Icon texture="Content/UI/TalentsIcons2.png" sheetindex="4,4" sheetelementsize="128,128"/>
+		<Description tag="talentdescription.aquaghost"/>
+		<AbilityGroupInterval interval="0.9">
+			<Conditions>
+				<AbilityConditionInWater/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="aquaghost" amount="1.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+	</Talent>
+	<Talent identifier="aquaspectre">
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="5,2" sheetelementsize="128,128"/>
+		<Description tag="talentdescription.aquaspectre"/>
+		<AbilityGroupInterval interval="1">
+			<Conditions>
+				<AbilityConditionInWater/>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffects>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="aquaspectre" amount="2.0"/>
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffects>
+			</Abilities>
+		</AbilityGroupInterval>
+	</Talent>
+	<Talent identifier="battlecommand">
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,0" sheetelementsize="128,128"/>
+		<Description tag="talentdescription.battlecommand"/>
+		<AbilityGroupInterval interval="0.9">
+			<Abilities>
+				<CharacterAbilityModifyStatToSkill stattype="HelmSkillBonus" maxvalue="30" skillidentifier="weapons" />
+			</Abilities>
+		</AbilityGroupInterval>
+		<AbilityGroupInterval interval="0.9">
+			<Abilities>
+				<CharacterAbilityApplyStatusEffectsToLastOrderedCharacter>
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+							<Affliction identifier="assistattack" amount="1.0" />
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffectsToLastOrderedCharacter>
+			</Abilities>
+		</AbilityGroupInterval>
+	</Talent>
+	<Talent identifier="suppression">
+		<Description tag="talentdescription.suppression"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,3" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="None">
+			<Abilities>
+				<CharacterAbilityGiveStat stattype="TurretAttackSpeed" value="0.1"/>
+				<CharacterAbilityGiveStat stattype="TurretPowerCostReduction" value="0.1"/>
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnAttack">
+			<Conditions>
+				<AbilityConditionCharacter>
+					<Conditional speciesname="neq human" />
+				</AbilityConditionCharacter>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyAttackData addeddamagemultiplier="0.05"/>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="scavenging">
+		<Description tag="talentdescription.scavenging"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="2,2" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="OnOpenItemContainer">
+			<Conditions>
+				<AbilityConditionItemInSubmarine submarinetype="Wreck" />
+				<AbilityConditionItem tags="container" />
+			</Conditions>
+			<Abilities>
+				<CharacterAbilitySpawnItemsToContainer randomchance="0.1" oncepercontainer="true">
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="UseTarget">
+							<SpawnItem identifiers="skillbooksubmarinewarfare" spawnposition="ThisInventory" spawnifcantbecontained="false" />
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilitySpawnItemsToContainer>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="tsm_bonvoyage">
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="5,1" sheetelementsize="128,128"/>
+		<Description tag="talentdescription.tsm_bonvoyage"/>
+		<AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+			<Conditions>
+				<AbilityConditionNoCrewDied assistantsdontcount="false" />
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityApplyStatusEffectsToAllies requiresalive="true" allowself="true">
+					<StatusEffects>
+						<StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+							<GiveSkill skillidentifier="weapons" amount="2" triggertalents="false" />
+							<GiveSkill skillidentifier="helm" amount="2" triggertalents="false" />
+						</StatusEffect>
+					</StatusEffects>
+				</CharacterAbilityApplyStatusEffectsToAllies>
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+	<Talent identifier="endlesshunting">
+		<Description tag="talentdescription.endlesshunting"/>
+		<Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,4" sheetelementsize="128,128"/>
+		<AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+			<Conditions>
+				<AbilityConditionCharacter targettype="Monster">
+					<Conditional HealthPercentage="gt 50"/>
+				</AbilityConditionCharacter>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyAffliction afflictionidentifiers="gunshotwound" addedmultiplier="0.1" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+			<Conditions>
+				<AbilityConditionHasSkill skillidentifier="weapons" minvalue="80" />
+				<AbilityConditionCharacter targettype="Monster">
+					<Conditional HealthPercentage="gt 50"/>
+				</AbilityConditionCharacter>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyAffliction afflictionidentifiers="gunshotwound" addedmultiplier="0.1" />
+			</Abilities>
+		</AbilityGroupEffect>
+		<AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+			<Conditions>
+				<AbilityConditionHasSkill skillidentifier="weapons" minvalue="100" />
+				<AbilityConditionCharacter targettype="Monster">
+					<Conditional HealthPercentage="gt 50"/>
+				</AbilityConditionCharacter>
+			</Conditions>
+			<Abilities>
+				<CharacterAbilityModifyAffliction afflictionidentifiers="gunshotwound" addedmultiplier="0.2" />
+			</Abilities>
+		</AbilityGroupEffect>
+	</Talent>
+</Talents>
